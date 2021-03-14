@@ -2,24 +2,24 @@ package main
 
 import "fmt"
 
-func main()  {
-	fmt.Println(pala("malayalam"))
+func main() {
+	pala("malayalam")
 }
 
-func pala(input_str string) {
-	var new_str string
-	var reversed_str string
-	var i string
+func pala(inputstr string) {
+	var newstr string
+	var reversedstr string
 
-	for i = range input_str {
+	var i string
+	for i = range inputstr {
 		if i != " " {
-			new_str +=  i
-			reversed_str += i
+			newstr += i
+			reversedstr += i
 		}
 	}
 
-	if new_str == reversed_str {
-		return "true"
+	if newstr == reversedstr {
+		fmt.Println("true")
 	}
-	return "false"
+	fmt.Println("false")
 }

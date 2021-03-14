@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	//"reflect"
+	// "reflect"
 )
 
 // func itemExists(arrayType interface{}, item interface{}) bool {
@@ -21,21 +21,16 @@ import (
 // 	return false
 // }
 
-func main()  {
-	var years []int{2000, 20, 1980, 40, 9000, 49, 100}
-	// se := []int{}
-	for i := range years {
-		for j := range years {
-			// if itemExists(i, se) && itemExists(j, se) {
-			// 	continue;
-			// } else 
-			if i + j == 2020 {
-				fmt.Printf("%d + %d = 2020", i, j)
+func main() {
+	years := []int{2000, 20, 1980, 40, 9000, 49, 100}
+	// se := []int{};
+	for i, f := range years {
+		for j, k := range years {
+			if f+k == 2020 {
+				fmt.Printf("%d %d --> %d + %d = 2020", i, j, f, k)
 				fmt.Println()
-				// se = append(se, i, j)
-			} else {
-				continue;
+				// se = append(se, j, )
 			}
 		}
-	} 
+	}
 }

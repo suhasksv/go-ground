@@ -15,5 +15,5 @@
 # vendor/
 
 **.vscodo
-**launch.json
+**.json
 **push.sh
