@@ -1,8 +1,8 @@
-wpackage main
+package main
 
 import "fmt"
 
-func main()  {
+func main() {
 	fmt.Print("Enter number of rows:")
 	var rows int
 	fmt.Scan(&rows)

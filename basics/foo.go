@@ -6,7 +6,7 @@ import (
 )
 
 /*
-The main function, when part of the pacakge main, identifires the entry
+The main function, when part of the package main, identifires the entry
 point of the application
 */
 func main() {
@@ -37,3 +37,4 @@ func foo() {
 		fmt.Println(i)
 	}
 }
+
