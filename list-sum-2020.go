@@ -26,7 +26,7 @@ func main() {
 	// se := []int{};
 	for i, f := range years {
 		for j, k := range years {
-			if f+k == 2020 {
+			if f + k == 2020 {
 				fmt.Printf("%d %d --> %d + %d = 2020", i, j, f, k)
 				fmt.Println()
 				// se = append(se, j, )
