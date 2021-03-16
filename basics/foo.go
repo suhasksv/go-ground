@@ -1,15 +1,13 @@
 package main // Ever Go source code starts with package
 
-import (
-	"fmt"
-	"math" // Go imports a module i.e, "fmt"
-)
+import "fmt"
 
 /*
 The main function, when part of the package main, identifires the entry
 point of the application
 */
 func main() {
+	/*
 	a := 10.0
 
 	a = math.Pow(a, 2)
@@ -29,12 +27,17 @@ func main() {
 	fmt.Print("hello", a, "th of the day is", b, "\n")
 	fmt.Println("world")
 	foo()
-}
 
+	*/
+	var firstName *string = new(string)
+	*firstName = "Golang"
+	fmt.Println(*firstName)
+}
+/*
 func foo() {
-	years := []int{10, 100, 200, 2000, 20};
+	years := []int{10, 100, 200, 2000, 20}
 	for i := range years {
 		fmt.Println(i)
 	}
 }
-
+*/

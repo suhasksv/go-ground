@@ -1,13 +1,18 @@
 package main
 
-import ("fmt")
+import (
+	"fmt"
+)
 
 func main() {
-	n := map[string]int{"golang": 100, "python": 90}
-	fmt.Println(n)
-	fmt.Println(n["golang"])
-	fmt.Println(n["python"])
+	m := map[string]int{"foo": 1, "boo":3}
+	fmt.Println(m["foo"])
+	fmt.Println(m)
 
-	n["python"] = 95
-	fmt.Println(n["python"])
+	m["boo"] = 2
+	fmt.Println(m["boo"])
+	fmt.Println(m)
+
+	delete(m, "boo")
+	fmt.Println(m)
 }
