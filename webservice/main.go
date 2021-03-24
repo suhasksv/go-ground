@@ -1,15 +1,11 @@
 package main
 
 import (
-	"fmt"
-	"gihub.com/pluralsight/webservice/models"
+	"gihub.com/pluralsight/webservice/controllers"
+	"net/http"
 )
 
 func main() {
-	u := models.User{
-		ID: 2,
-		FirstName: "Suhas",
-		LastName: "K",
-	}
-	fmt.Println(u)
+	controllers.RegisterController()
+	http.ListenAndServe(":3000", nil)
 }
