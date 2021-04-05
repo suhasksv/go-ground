@@ -1,5 +1,4 @@
 package main // Ever Go source code starts with package
-
 import "fmt"
 
 /*
@@ -28,10 +27,69 @@ func main() {
 	fmt.Println("world")
 	foo()
 
-	*/
+
 	var firstName *string = new(string)
 	*firstName = "Golang"
 	fmt.Println(*firstName)
+
+	a := 20
+	b := 10
+
+	fmt.Printf("Result of a + b = %d\n", a + b)
+	fmt.Printf("Result of a - b = %d\n", a - b)
+	fmt.Printf("Result of a * b = %d\n", a * b)
+	fmt.Printf("Result of a / b = %d\n", a / b)
+	fmt.Printf("Result of a % b = %d", a % b)
+
+	fmt.Println(a % b)
+	a := 20
+	b := 10
+	fmt.Printf("a == b %t\n", a == b)
+	fmt.Printf("a != b %t\n", a != b)
+	fmt.Printf("a > b %t\n", a > b)
+	fmt.Printf("a < b %t\n", a < b)
+	fmt.Printf("a >= b %t\n", a >= b)
+	fmt.Printf("a < b %t", a <= b)
+	fmt.Println()
+	 */
+	//const a int = 20
+	//const b int = 10
+	//
+	//fmt.Printf("Result of a & b = %d\n", a & b)
+	//fmt.Printf("Result of a | b = %d\n", a | b)
+	//fmt.Printf("Result of a ^ b = %d\n", a ^ b)
+	//fmt.Printf("Result of a >> b = %d\n", a >> b)
+	//fmt.Printf("Result of a << b = %d\n", a << b)
+	//fmt.Printf("Result of a &^ b = %d", a &^ b)
+
+	//var a int32
+	//var b int32 = 10
+	//
+	//a = b
+	//fmt.Println(a)
+	//
+	//a += b
+	//fmt.Println(a)
+	//
+	//a -= b
+	//fmt.Println(a)
+	//
+	//a *= b
+	//fmt.Println(a)
+	//
+	//a /= b
+	//fmt.Println(a)
+	//
+	//a %= b
+	//fmt.Println(a)
+
+	var a int16 = 4
+	b := &a
+	fmt.Println(b)
+	*b = 7
+	fmt.Println(a)
+
+
 }
 /*
 func foo() {
