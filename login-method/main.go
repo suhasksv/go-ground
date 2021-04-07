@@ -17,15 +17,15 @@ func main() {
 
 func ask_sign() {
 	var ask string
-	fmt.Print("Do you want to sign in or sign up to Quantum Tricks ? : ")
+	fmt.Print("Do you want to sign in or sign up to Quantum Tricks ?: ")
 	fmt.Scan(&ask)
 	signin := ask == "signin"
 	signup := ask == "signup"
 	if signup == true {
 		create_new_user()
 	} else if signin == true {
-		is, is1 := user_sign_in()
-		fmt.Println(is, is1)
+		is1 := user_sign_in()
+		fmt.Println(is1)
 		ask_sign()
 	} else {
 		ask_sign()
@@ -64,33 +64,34 @@ func create_new_user() {
 			println("Username is already taken, please try another username...\n")
 			continue
 		}
+		continue
 	}
 }
 
-func user_sign_in() (string, string) {
+func user_sign_in() string {
 	var username string
 	fmt.Print("Enter Username: ")
-	fmt.Scanln(&username)
+	fmt.Scan(&username)
 
 	for _, j := range usernames {
 		if username == j {
 			chk := password_chk(username)
 			if chk == true {
-				return "login success", ""
+				return "login success"
 			} else if chk == false {
-				return "login failed", ""
+				return "login failed"
 			} else {
-				return "Could not find user", ""
+				return "Could not find user"
 			}
 		}
 	}
-	return "", ""
+	return ""
 }
 
 func password_chk(username string) bool {
 	fmt.Print("Enter your password: ")
 	var ask_passwd string
-	fmt.Scanln(&ask_passwd)
+	fmt.Scan(&ask_passwd)
 	salt := find_salt_of_user(username)
 	passwd := encrypt_passwd(salt, ask_passwd)
 	passw := passwds[username]
