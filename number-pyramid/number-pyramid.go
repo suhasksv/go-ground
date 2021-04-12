@@ -11,11 +11,11 @@ func main()  {
 }
 
 func loop(row int)  {
-	var num int = 1
+	num := 1
 	for i := 0; i <= row; i++ {
 		for j := 0; j <= i; j++ {
 			fmt.Printf("%.2d ", num)
-			num++	
+			num++
 		}
 		println("")
 	}

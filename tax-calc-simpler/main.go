@@ -41,7 +41,7 @@ func taxCalc() float64 {
 		return a * 0.05 + a * 0.10 + a * 0.15 + a * slab
 	case 0.30:
 		salary -= 5 * a
-		return a * 0.05 + a * 0.10 + a * 0.15 + a * 0.20 + a * slab
+		return a * 0.05 + a * 0.10 + a * 0.15 + a * 0.20 + salary * slab
 	}
 	return 0
 }

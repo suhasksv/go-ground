@@ -55,7 +55,7 @@ func _1000KTo1500K(salary float64) float64 {
 func _1500KGreater(salary float64) float64 {
 	var b = _750KTo1000K(salary)
 	salary -= a
-	tax += b + a * 0.30
+	tax += b + salary * 0.30
 	return tax
 }
 
