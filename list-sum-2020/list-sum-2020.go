@@ -1,9 +1,37 @@
 package main
 
-import (
-	"fmt"
-	// "reflect"
-)
+import "fmt"
+
+var years = []int{2000, 20, 1980, 40, 9000, 49, 100}
+var se []int
+var i int
+
+func main() {
+	for _, f := range years {
+		for _, k := range years {
+			if notIn(f, k) == true {
+				if f + k == 2020 {
+					fmt.Printf("%d + %d = 2020\n", f, k)
+					se = append(se, f, k)
+				}
+			}
+			continue
+		}
+	}
+}
+
+func notIn(a, b int) bool {
+	for _, i = range se {
+		if a != i && b != i {
+			return true
+			continue
+		}
+		return false
+	}
+	return true
+}
+
+
 
 // func itemExists(arrayType interface{}, item interface{}) bool {
 // 	arr := reflect.ValueOf(arrayType)
@@ -20,17 +48,3 @@ import (
 
 // 	return false
 // }
-
-func main() {
-	years := []int{2000, 20, 1980, 40, 9000, 49, 100}
-	// se := []int{};
-	for _, f := range years {
-		for _, k := range years {
-			if f + k == 2020 {
-				fmt.Printf("%d + %d = 2020", f, k)
-				fmt.Println()
-				// se = append(se, j, )
-			}
-		}
-	}
-}

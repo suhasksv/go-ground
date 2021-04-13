@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var prev int = 0
-	var curr int = 1
-	var nex int = 0
+	var prev = 0
+	var curr = 1
+	var nex = 0
 
 	fmt.Print("Enter how many fibonacci numbers to be printed:")
 	var n int
