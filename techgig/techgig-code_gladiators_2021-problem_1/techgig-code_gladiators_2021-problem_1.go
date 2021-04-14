@@ -72,7 +72,7 @@ func main() {
       }
     }
     if k < len(b) {
-      fmt.Println("NEGETIVE")
+      fmt.Println("NEGATIVE")
     }
   }
 }
