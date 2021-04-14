@@ -43,28 +43,36 @@ POSITIVE
 NEGATIVE
 """
 */
+
 package main
 
 import "fmt"
 
 var (
-	virusComposition string
-	no               int
-	blCom            string
+  v string
+  b string
+  n int
 )
-var bloodComposition[]string
 
 func main() {
-	fmt.Scan(&virusComposition)
-
-	fmt.Scan(&no)
-
-	for i := 1; i <= no; i++ {
-		fmt.Scan(&blCom)
-		bloodComposition = append(bloodComposition, blCom)
-	}
-
-	for _, j := range bloodComposition {
-		fmt.Println(j)
-	}
+  fmt.Scan(&v)
+  fmt.Scan(&n)
+  for i := 1; i <= n; i++ {
+    fmt.Scan(&b)
+    var k int = 0
+    for x := 0; x < len(v); x++ {
+      if b[k] == v[x] {
+        k++
+        if k == len(b) {
+          fmt.Println("POSITIVE")
+          break
+        }
+      } else {
+        continue
+      }
+    }
+    if k < len(b) {
+      fmt.Println("NEGETIVE")
+    }
+  }
 }
