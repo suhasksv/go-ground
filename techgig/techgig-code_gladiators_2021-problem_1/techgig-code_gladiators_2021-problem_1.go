@@ -1,4 +1,5 @@
 /*
+
 In the Martian land faraway, a new virus has evolved and is attacking the individuals at a fast pace. The scientists have figured out the virus composition, V. The big task is to identify the people who are infected. The sample of N people is taken to check if they are POSITIVE or NEGATIVE. A report is generated which provides the current blood composition B of the person.
 
 
@@ -49,22 +50,58 @@ import "fmt"
 
 var (
 	virusComposition string
-	no               int
+	n                int
 	blCom            string
 )
 var bloodComposition[]string
 
 func main() {
 	fmt.Scan(&virusComposition)
+	fmt.Scan(&n)
 
-	fmt.Scan(&no)
-
-	for i := 1; i <= no; i++ {
+	for i := 1; i <= n; i++ {
 		fmt.Scan(&blCom)
 		bloodComposition = append(bloodComposition, blCom)
 	}
 
 	for _, j := range bloodComposition {
 		fmt.Println(j)
+
 	}
 }
+
+// Java Code
+/*
+import java.io.*;
+import java.util.*;
+
+class Cviru {
+  public static void main(String[] args) {
+
+    Scanner sc = new Scanner(System.in); 
+    String v = sc.nextLine();
+    int x = sc.nextInt(); 
+    sc.nextLine(); 
+    
+    for(int i = 0; i < x; i++) { 
+      String arr[] = new String[x]; 
+      arr[i] = sc.nextLine(); 
+      
+      boolean isPositive = true;
+
+      int k = 0;
+      
+      for (int j=0; j<arr[i].toCharArray().length; j++) {
+          k =  v.indexOf(arr[i].toCharArray()[j], k);
+          if (k < 0) {
+            isPositive = false;
+            break;
+          }
+      }
+
+      System.out.println(isPositive?"POSITIVE":"NEGATIVE");
+
+    } 
+  }
+}
+*/
