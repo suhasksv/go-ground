@@ -1,55 +1,56 @@
 package main
 
-import "fmt"
-
-var arr []int
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	var n int
-	var min = 0
-	var max = 0
+	n := 0
+	min := 0
+	max := 0
 
-	fmt.Scan(&n)
-	for i := 0; i < n; i++ {
-		fmt.Scan(&min, &max)
-		calc(min, max)
+	_, _ = fmt.Scan(&n)
+	for j := 0; j < n; j++ {
+		_, _ = fmt.Scan(&min, &max)
 
-		if max == 0 {
-			if isPrime(min) == true {
-				fmt.Println(min)
+		k := -1
+		l := -1
+
+		for i := min; i <= max; i++ {
+			if isPrime(i) {
+				if k < 0 {
+					k = i
+				} else {
+					l = i
+				}
 			}
-		} else if len(arr) == 0 {
-			fmt.Println(-1)
-		} else {
-			fmt.Println(maximum() - minimum())
 		}
-		min, max = 0, 0
-		arr = nil
-	}
-}
 
-func calc(min, max int) {
-	for i := min; i <= max; i++ {
-		if isPrime(i) {
-			arr = append(arr, i)
+		if k < 0 {
+			fmt.Println(-1)
+		} else if l < 0 {
+			fmt.Println(0)
+		} else {
+			fmt.Println(l - k)
 		}
 	}
 }
 
 func isPrime(a int) bool {
-	var cnt = 0
-	for i := 1; i <= a/2; i++ {
+	if a!=2 && a%2==0 {
+		return false
+	}
+
+	for i := 2; i <= int(math.Sqrt(float64(a))); i++ {
 		if a % i == 0 {
-			cnt++
+			return false
 		}
-		continue
 	}
-	if cnt == 1 {
-		return true
-	}
-	return false
+	return true
 }
 
+/*
 func minimum() int {
 	min := arr[0]
 	for i, j := range arr {
@@ -71,3 +72,4 @@ func maximum() int {
 	}
 	return max
 }
+*/
