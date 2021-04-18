@@ -38,12 +38,12 @@ func main() {
 }
 
 func isPrime(a int) bool {
-	if a!=2 && a%2==0 {
+	if a != 2 && a%2 == 0 {
 		return false
 	}
 
 	for i := 2; i <= int(math.Sqrt(float64(a))); i++ {
-		if a % i == 0 {
+		if a%i == 0 {
 			return false
 		}
 	}
