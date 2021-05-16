@@ -1,3 +1,3 @@
-module gihub.com/pluralsight/webservice
+module github.com/pluralsight/webservice
 
-go 1.16
+go 1.12

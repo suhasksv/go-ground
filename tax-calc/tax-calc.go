@@ -39,7 +39,6 @@ func _500KTo750K(salary float64) float64 {
 
 func _750KTo1000K(salary float64) float64 {
 	var b = _500KTo750K(salary)
-	var a float64 = 250000
 	salary -= a
 	tax += b + a * 0.15
 	return tax
