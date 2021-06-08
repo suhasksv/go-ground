@@ -1,17 +1,20 @@
+/*
 package main
 
 import (
 	"fmt"
+	"math/rand"
+	"strings"
 )
 
-var usernames = []string{}
-var passwds =  map[string]string{}
-var assignedSalt = []int{}
-var userSalt = map[string]int{}
-var salt_qt = []int{}
+var (
+	usernames []string
+	passwds =  map[string]string{}
+	assignedSalt []int
+	userSalt = map[string]int{}
+)
 
 func main() {
-	salt_tp()
 	ask_sign()
 }
 
@@ -19,41 +22,40 @@ func ask_sign() {
 	var ask string
 	fmt.Print("Do you want to sign in or sign up to Quantum Tricks ?: ")
 	fmt.Scan(&ask)
-	signin := ask == "signin"
-	signup := ask == "signup"
-	if signup == true {
-		create_new_user()
-	} else if signin == true {
-		is1 := user_sign_in()
-		fmt.Println(is1)
+	ask = strings.ToLower(ask)
+
+	if ask == "signup" || ask == "register"{
+		createNewUser()
+	} else if ask == "signin" {
+		fmt.Println(userSignIn())
 		ask_sign()
 	} else {
 		ask_sign()
 	}
-	return
 }
 
-func create_new_user() {
+func createNewUser() {
 	for true {
 		var username string
 		fmt.Print("Enter your username: ")
 		fmt.Scan(&username)
+
 		for _, i := range usernames {
 			if username != i {
-				usernames = append(usernames, username)
 
 				fmt.Println("Note that the password should only be a string...! \n")
 				fmt.Println("Enter Password: ")
 				var passwd string
 				fmt.Scan(&passwd)
 				for true {
-					var repasswd string
+					var rePasswd string
 					fmt.Println("Re-enter the password: ")
-					fmt.Scan(&repasswd)
-					if passwd == repasswd {
+					fmt.Scan(&rePasswd)
+					if passwd == rePasswd {
 						fmt.Println("Congratulations your Quantum Tricks Account has been created successfully")
 						fmt.Println("Please sign in to start working with your QT Account \n")
-						salt_assign(passwd, username)
+						saltAssign(passwd, username)
+						usernames = append(usernames, username)
 						ask_sign()
 						break
 					}
@@ -64,18 +66,17 @@ func create_new_user() {
 			println("Username is already taken, please try another username...\n")
 			continue
 		}
-		continue
 	}
 }
 
-func user_sign_in() string {
+func userSignIn() string {
 	var username string
 	fmt.Print("Enter Username: ")
 	fmt.Scan(&username)
 
 	for _, j := range usernames {
 		if username == j {
-			chk := password_chk(username)
+			chk := passwordChk(username)
 			if chk == true {
 				return "login success"
 			} else if chk == false {
@@ -88,48 +89,85 @@ func user_sign_in() string {
 	return ""
 }
 
-func password_chk(username string) bool {
+func passwordChk(username string) bool {
 	fmt.Print("Enter your password: ")
 	var ask_passwd string
 	fmt.Scan(&ask_passwd)
-	salt := find_salt_of_user(username)
-	passwd := encrypt_passwd(salt, ask_passwd)
-	passw := passwds[username]
-	if passwd == passw {
+	salt := findSaltOfUser(username)
+	passwd := encryptPasswd(salt, ask_passwd)
+	OPasswd := passwds[username]
+	if passwd == OPasswd {
 		return true
-	} else {
-		return false
 	}
+	return false
 }
 
-func find_salt_of_user(user string) int {
+func findSaltOfUser(user string) int {
 	salt := userSalt[user]
 	return salt
 }
 
-func encrypt_passwd(salt int, passwd string) string {
-	new_passwd := string(salt) + passwd
-	return new_passwd
+func encryptPasswd(salt int, passwd string) string {
+	newPasswd := string(rune(salt)) + passwd
+	return newPasswd
 }
 
-func salt_assign(passwd string, username string) {
-	for true {
-		for i := 0; i <= 10000; i++ {
-			salt := salt_qt[i]
-			for _, j := range assignedSalt {
-				if salt != j {
-					s := string(salt) + passwd
-					assignedSalt = append(assignedSalt, salt)
-					userSalt[username] = salt
-					passwds[username] = s
-				}
-			}
+func saltAssign(passwd string, username string) {
+	salt := random()
+	for _, j := range assignedSalt {
+		if salt != j {
+			s := string(rune(salt)) + passwd
+			assignedSalt = append(assignedSalt, salt)
+			userSalt[username] = salt
+			passwds[username] = s
 		}
 	}
 }
 
-func salt_tp() {
-	for i := 0; i <= 10000; i++ {
-		salt_qt = append(salt_qt, i)
+func random() int {
+	return rand.Intn(100000)
+}
+*/
+
+package main
+
+import "fmt"
+
+type userStruct struct {
+	id int
+	FirstName string
+	LastName string
+	password string
+	EmailAddress string
+	Location string
+}
+
+var (
+	users []*userStruct
+	nid = 1
+)
+
+func main() {
+
+}
+
+func GetUsers() []*userStruct {
+	return users
+}
+
+func addUser(u userStruct) userStruct {
+	u.id = nid
+	nid++
+	users = append(users, &u)
+	return u
+}
+
+func deleteUserById(id int) error {
+	for i, u := range users {
+		if u.id == id {
+			users = append(users[:i], users[i+1:]...)
+		}
 	}
+
+	return fmt.Errorf("User with ID '%d' does not exist", id)
 }

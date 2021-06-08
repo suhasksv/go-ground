@@ -1,0 +1,21 @@
+<html lang="en">
+<head><meta charset="UTF-8"><title>Quantum Tricks</title></head>
+<body topmargin="40" leftmargin="50" bgcolor="aqua">
+
+{{if .UserName}}
+<h1>You are logged in</h1>
+
+Username {{.UserName}} <br>
+Password {{.Password}} <br>
+First Name {{.FirstName}} <br>
+Last Name {{.LastName}} <br>
+{{else}}
+<h1>LOGIN</h1>
+<form>
+    <input type="text" name="UserName" placeholder="Enter Email ID">
+    <input type="password" name="Password" placeholder="Enter Password"> <br><br>
+    <input type="submit" value="Login">
+</form>
+{{end}}
+</body>
+</html>
