@@ -175,30 +175,98 @@ func main() {
 	fmt.Println(min)
 */
 
+// package main
+
+// import "fmt"
+
+// func main() {
+// 	//words := []string{"a", "quick", "brown", "fox", "jumped", "over", "a", "lazy", "dog"}
+// 	words := make([]string, 0, 2)
+// 	fmt.Printf("%d %d\n", len(words), cap(words))
+// 	words = append(words, "The")
+// 	words = append(words, "Quick")
+// 	words = append(words, "Brown")
+// 	words = append(words, "Fox")
+
+// 	fmt.Printf("%d %d\n", len(words), cap(words))
+// 	printer(words)
+// 	words = append(words, "jumps")
+// 	fmt.Printf("%d %d\n", len(words), cap(words))
+// 	printer(words)
+// }
+
+// func printer(w []string) {
+// 	for _, i := range w {
+// 		fmt.Printf("%s ", i)
+// 	}
+
+// 	fmt.Println()
+// }
+
+
+
+
 package main
 
 import "fmt"
 
 func main() {
-	//words := []string{"a", "quick", "brown", "fox", "jumped", "over", "a", "lazy", "dog"}
-	words := make([]string, 0, 2)
-	fmt.Printf("%d %d\n", len(words), cap(words))
-	words = append(words, "The")
-	words = append(words, "Quick")
-	words = append(words, "Brown")
-	words = append(words, "Fox")
+    s1 := []int{1, 2, 3, 4, 5}
+    s2 := []string{"st", "nd", "rd", "th", "th"}
+    fmt.Println(s1)
+    for g, i := range s1 {
+        fmt.Printf("%d%s element in slice s1 is %d\n", g+1, s2[g], i)
+    }
 
-	fmt.Printf("%d %d\n", len(words), cap(words))
-	printer(words)
-	words = append(words, "jumps")
-	fmt.Printf("%d %d\n", len(words), cap(words))
-	printer(words)
+    newslice := []int{-5, -4, -3, -2, -1, 0}
+    newslice = append(newslice, s1...)
+    fmt.Println(newslice)
+    for g, i := range newslice {
+        fmt.Printf("%.2d element in slice s1 is %d\n", g+1, i)
+    }
+    println(len(newslice))
 }
 
-func printer(w []string) {
-	for _, i := range w {
-		fmt.Printf("%s ", i)
-	}
 
-	fmt.Println()
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
