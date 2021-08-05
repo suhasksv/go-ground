@@ -69,11 +69,10 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
-	//var sum int
-
 	var n int
 	fmt.Scan(&n)
 
@@ -82,6 +81,7 @@ func main() {
 
 	text := scanner.Text()
 
+	start := time.Now()
 	text1 := strings.Split(text, " ")
 
 	intText := make([]int, 0)
@@ -89,17 +89,18 @@ func main() {
 		i, _ := strconv.Atoi(i)
 		intText = append(intText, i)
 	}
-	fmt.Println(calc(intText))
-}
 
-func calc(intText []int) int {
-	moves := 1
-	for _, i := range intText {
-		for j := 0; j <= i; j++ {
-			i /= 2
-			moves += 2
+	moves := 0
+	for _, j := range intText {
+		if j != 1 {
+			moves += 1 + (j / 2) + j
+		} else {
+			moves += 1
 		}
 	}
 
-	return moves
+	fmt.Print(moves)
+	elapsed := time.Since(start)
+	fmt.Printf("\npage took %s\n", elapsed)
 }
+

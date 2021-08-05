@@ -24,17 +24,13 @@ func handleReqs() {
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/sample", returnSamples)
 	log.Fatal(http.ListenAndServe(":8080", nil))
-
-	//if err != nil {
-	//	return
-	//}
 }
 
 func main() {
 	handleReqs()
 }
 
-func returnSamples(w http.ResponseWriter, r *http.Request) {
+func returnSamples(w http.ResponseWriter, _ *http.Request) {
 	samples := Samples{
 		Sample{id: 1, name: "suhas", desc: "Go King"},
 		Sample{id: 2, name: "Go", desc: "Web Application Development Language"},

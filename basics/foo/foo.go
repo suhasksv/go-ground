@@ -203,9 +203,7 @@ func main() {
 // 	fmt.Println()
 // }
 
-
-
-
+/*
 package main
 
 import "fmt"
@@ -227,46 +225,23 @@ func main() {
     println(len(newslice))
 }
 
+*/
 
+package main
 
+import "fmt"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+func main() {
+	d := 0
+	for i := 0; i < 10; i++ {
+		for j := 0; j < 10; j++ {
+			for f := 0; f < 10; f++ {
+				for g := 0; g < 10; g++ {
+					fmt.Println(i, j, f, g)
+					d++
+				}
+			}
+		}
+	}
+	fmt.Println(d)
+}
