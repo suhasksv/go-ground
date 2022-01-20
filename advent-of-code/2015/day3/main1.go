@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strconv"
+	//"strconv"
 	"strings"
 	// "flag"
 )
@@ -41,53 +41,43 @@ func writeLines(lines []string, path string) error {
 	}
 	return w.Flush()
 }
+type cod struct {
+	x, y int
+}
 
 func main() {
 	lines, err := readLines("foo.in.txt")
 	if err != nil {
 		log.Fatalf("readLines: %s", err)
 	}
-	//fmt.Println(lines)
+	// fmt.Println(lines)
 
 	if err := writeLines(lines, "foo.out.txt"); err != nil {
 		log.Fatalf("writeLines: %s", err)
 	}
 
+	homes := make(map[cod]bool)
+	coord := cod{0, 0}
+
+	homes[coord] = true
+
 	var data []string
 	for _, j := range lines {
-		data = append(data, strings.SplitAfter(j, "\n")...)
+		data = append(data, strings.Split(j, "")...)
 	}
-	var sum int
-	var totalRibbon int
-	for _, s := range data {
-		// paper
-		split := strings.Split(s, "x")
-		l, _ := strconv.Atoi(split[0])
-		b, _ := strconv.Atoi(split[1])
-		w, _ := strconv.Atoi(split[2])
-		var data []int
-		data = append(data, l*b, l*w, b*w)
-		sum += (2*l*b) + (2*l*w) + (2*b*w) + minimum(data)
-		data = nil
-
-		// ribbon
-		data = append(data, l+l+w+w, l+l+b+b, w+w+b+b)
-		ribbon := minimum(data)
-		bow := l * b * w
-		totalRibbon += ribbon + bow
-		data = nil
-	}
-	fmt.Println("Puzzle 1 answer:", sum)
-	fmt.Println("Puzzle 2 answer:", totalRibbon)
-}
-
-func minimum(arr []int) int {
-	min := arr[0]
-	for i, j := range arr {
-		if j < min {
-			min = arr[i]
+	// TODO: Part 1
+	for _, i := range data {
+		switch i {
+		case ">":
+			coord = cod{coord.x + 1, coord.y}
+		case "<":
+			coord = cod{coord.x - 1, coord.y}
+		case "^":
+			coord = cod{coord.x, coord.y - 1}
+		case "v":
+			coord = cod{coord.x, coord.y + 1}
 		}
-		continue
+		homes[coord] = true
 	}
-	return min
+	fmt.Println("Part 1:", len(homes))
 }
