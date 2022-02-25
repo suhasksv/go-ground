@@ -20,11 +20,11 @@ var (
 func main() {
 	fmt.Print("Enter the value of a: ")
 	fmt.Scan(&a)
-	
+
 	fmt.Print("Enter the value of b: ")
 	fmt.Scan(&b)
 
-	fmt.Print("Enter the value of c: " )
+	fmt.Print("Enter the value of c: ")
 	fmt.Scan(&c)
 	i = dChk(a, b, c)
 	alpha, beta = calcAlphaBeta(a, b, c)
