@@ -79,7 +79,7 @@ func main() {
 	callAgain()
 }
 
-func cube(ask string, a int) int {
+func cube(ask string, a float64) float64 {
 	switch ask {
 	case "TSA":
 		return 6 * a * a
@@ -91,7 +91,7 @@ func cube(ask string, a int) int {
 	return 0
 }
 
-func cuboid(ask string, l, b, h int) int {
+func cuboid(ask string, l, b, h float64) float64 {
 	switch ask {
 	case "TSA":
 		return 2 * ((l * b) + (b * h) + (l * h))
@@ -103,51 +103,51 @@ func cuboid(ask string, l, b, h int) int {
 	return 0
 }
 
-func cylinder(ask string, r, h float64) int {
+func cylinder(ask string, r, h float64) float64 {
 	switch ask {
 	case "TSA":
-		return int(2*pi*r*r + 2*pi*r*h)
+		return 2*pi*r*r + 2*pi*r*h
 	case "CSA":
-		return int(2 * pi * r * h)
+		return 2 * pi * r * h
 	case "VOL":
-		return int(pi * r * r * h)
+		return pi * r * r * h
 	}
 	return 0
 }
 
-func cone(ask string, l, r float64) int {
+func cone(ask string, l, r float64) float64 {
 	switch ask {
 	case "TSA":
-		return int(pi*r*l + pi*r*r)
+		return pi * r * l + pi * r * r
 	case "CSA":
-		return int(pi * r * l)
+		return pi * r * l
 	case "VOL":
 		h := math.Sqrt((l * l) + (r * r))
-		return int(0.33 * pi * r * r * h)
+		return 0.33 * pi * r * r * h
 	}
 	return 0
 }
 
-func sphere(ask string, r float64) int {
+func sphere(ask string, r float64) float64 {
 	switch ask {
 	case "TSA":
-		return int(4 * pi * r * r)
+		return 4 * pi * r * r
 	case "CSA":
-		return int(4 * pi * r * r)
+		return 4 * pi * r * r
 	case "VOL":
-		return int(1.33 * pi * r * r * r)
+		return 1.33 * pi * r * r * r
 	}
 	return 0
 }
 
-func hemisphere(ask string, r float64) int {
+func hemisphere(ask string, r float64) float64 {
 	switch ask {
 	case "TSA":
-		return int(3 * pi * r * r)
+		return 3 * pi * r * r
 	case "CSA":
-		return int(2 * pi * r * r)
+		return 2 * pi * r * r
 	case "VOL":
-		return int(0.66 * pi * r * r)
+		return 0.66 * pi * r * r
 	}
 	return 0
 }
