@@ -3,10 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"strings"
 	"time"
-
-	_ "github.com/go-sql-driver/mysql"
 )
 
 const (
@@ -124,7 +123,12 @@ func INSERTINTOTABLE() {
 		panic(err.Error())
 	}
 
-	defer db.Close()
+	defer func(db *sql.DB) {
+		err := db.Close()
+		if err != nil {
+			panic(err.Error())
+		}
+	}(db)
 
 	fmt.Println("Successfully connected to MySQL Database 'testdb'")
 
@@ -134,7 +138,12 @@ func INSERTINTOTABLE() {
 		panic(err.Error())
 	}
 
-	defer insert.Close()
+	defer func(insert *sql.Rows) {
+		err := insert.Close()
+		if err != nil {
+			panic(err.Error())
+		}
+	}(insert)
 
 	fmt.Println("\nSuccessfully Updated Database\n\n")
 }
